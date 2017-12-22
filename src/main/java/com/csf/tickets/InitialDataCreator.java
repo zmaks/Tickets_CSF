@@ -1,5 +1,6 @@
 package com.csf.tickets;
 
+import com.csf.tickets.entities.Order;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +13,5 @@ public class InitialDataCreator {
      */
     @PostConstruct
     private void initData() {
-
     }
 }
