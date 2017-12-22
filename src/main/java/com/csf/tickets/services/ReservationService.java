@@ -3,15 +3,19 @@ package com.csf.tickets.services;
 
 import com.csf.tickets.dto.ReservationDto;
 import com.csf.tickets.entities.Reservation;
+import com.csf.tickets.exceptions.ReservationException;
 
 import java.util.List;
 
 public interface ReservationService {
-    void performReservationOrdering(List<Reservation> reservations);
+    void performReservationOrdering(List<Reservation> reservations) throws ReservationException;
 
-    Reservation create(ReservationDto reservation);
+    Reservation create(ReservationDto reservation) throws ReservationException;
 
     List<Reservation> getReservationsByUserId(String userId);
 
     List<Reservation> getOldReservations();
+
+    Reservation cancelReservation(Long reservationId) throws ReservationException;
+
 }
