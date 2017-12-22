@@ -1,30 +1,24 @@
-package com.csf.tickets.entities;
+package com.csf.tickets.dto;
 
-import com.csf.tickets.dto.ReservationDto;
-
-import javax.persistence.Entity;
 import java.util.Date;
 
-@Entity
-public class Reservation extends BaseEntity {
+/**
+ * Created by Maksim on 23.12.2017.
+ */
+public class ReservationDto {
+    private Long id;
     private Long ticketId;
     private String userId;
     private Date reserveTime;
     private String status;
 
-    public Reservation() {
+    public Long getId() {
+        return id;
     }
 
-    public Reservation(ReservationDto reservationDto) {
-        this(reservationDto.getTicketId(), reservationDto.getUserId());
+    public void setId(Long id) {
+        this.id = id;
     }
-
-    public Reservation(Long ticketId, String userId) {
-        this.ticketId = ticketId;
-        this.userId = userId;
-    }
-
-
 
     public Long getTicketId() {
         return ticketId;
