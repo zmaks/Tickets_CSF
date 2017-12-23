@@ -7,11 +7,13 @@ import com.csf.tickets.repositories.ReservationRepository;
 import com.csf.tickets.services.OrderService;
 import com.csf.tickets.services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired

@@ -1,6 +1,7 @@
 package com.csf.tickets.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
 public class Order extends BaseEntity {
 
     private Date creationDate;
+    @OneToMany
     private List<Reservation> reservations;
     private String status;
     private Integer amount;

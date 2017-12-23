@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class ReservationDto {
     private Long id;
-    private Long ticketId;
+    private String ticketId;
     private String userId;
     private Date reserveTime;
     private String status;
@@ -20,11 +20,11 @@ public class ReservationDto {
         this.id = id;
     }
 
-    public Long getTicketId() {
+    public String getTicketId() {
         return ticketId;
     }
 
-    public void setTicketId(Long ticketId) {
+    public void setTicketId(String ticketId) {
         this.ticketId = ticketId;
     }
 
