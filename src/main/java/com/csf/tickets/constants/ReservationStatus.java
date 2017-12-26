@@ -7,4 +7,5 @@ public interface ReservationStatus {
     String WAITING = "waiting";
     String IN_PROGRESS = "in progress";
     String CANCELED = "canceled";
+    String COMPLITED = "complited";
 }

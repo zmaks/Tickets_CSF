@@ -15,6 +15,7 @@ public class Order extends BaseEntity {
     private Integer amount;
     private Integer discount;
     private Integer totalAmount;
+    private Integer userId;
 
     public Date getCreationDate() {
         return creationDate;
@@ -62,5 +63,13 @@ public class Order extends BaseEntity {
 
     public void setTotalAmount(Integer totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

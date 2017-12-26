@@ -7,4 +7,5 @@ public interface TicketStatus {
     String RESERVED = "reserved";
     String ORDERED = "ordered";
     String FREE = "free";
+    String SOLD = "sold";
 }

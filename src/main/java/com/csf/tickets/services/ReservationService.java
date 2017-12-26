@@ -10,6 +10,8 @@ import java.util.List;
 public interface ReservationService {
     void performReservationOrdering(List<Reservation> reservations) throws ReservationException;
 
+    void performReservationComplited(List<Reservation> reservations) throws ReservationException;
+
     Reservation create(ReservationDto reservation) throws ReservationException;
 
     List<Reservation> getReservationsByUserId(String userId);

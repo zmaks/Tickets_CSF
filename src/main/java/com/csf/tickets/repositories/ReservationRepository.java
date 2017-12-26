@@ -11,4 +11,5 @@ import java.util.List;
 public interface ReservationRepository extends CrudRepository<Reservation, Long> {
     List<Reservation> findByUserId(String userId);
     List<Reservation> findByReserveTimeBeforeAndStatus(Date beforeDate, String status);
+    List<Reservation> findByIdIn(List<Long> idList);
 }

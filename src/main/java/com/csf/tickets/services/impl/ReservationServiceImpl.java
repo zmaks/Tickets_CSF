@@ -41,6 +41,19 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
+    public void performReservationComplited(List<Reservation> reservations) throws ReservationException {
+        for (Reservation reservation : reservations) {
+            reservation.setStatus(ReservationStatus.COMPLITED);
+            reservationRepository.save(reservation);
+            Optional<TicketDto> ticketDto = ticketService.getTicketById(reservation.getTicketId());
+            if (!ticketDto.isPresent()) {
+                throw new ReservationException("Ticket not found");
+            }
+            ticketDto.ifPresent(x -> ticketService.updateTicket(x, TicketStatus.SOLD));
+        }
+    }
+
+    @Override
     @Transactional
     public Reservation create(ReservationDto reservation) throws ReservationException {
         checkReservationRequest(reservation);
