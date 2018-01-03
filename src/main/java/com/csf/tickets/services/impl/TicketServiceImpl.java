@@ -2,7 +2,6 @@ package com.csf.tickets.services.impl;
 
 import com.csf.tickets.dto.TicketDto;
 import com.csf.tickets.services.TicketService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -25,12 +24,12 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Optional<TicketDto> getTicketById(String ticketId) {
-        return Optional.of(restTemplate.getForObject(catalogUrl, TicketDto.class));
+        return Optional.of(restTemplate.getForObject(catalogUrl + "/" + ticketId, TicketDto.class));
     }
 
     @Override
     public void updateTicket(TicketDto ticketDto, String status) {
         ticketDto.setStatus(status);
-        restTemplate.patchForObject(catalogUrl, ticketDto, TicketDto.class);
+        restTemplate.put(catalogUrl + "/"+ticketDto.getId(), ticketDto, TicketDto.class);
     }
 }

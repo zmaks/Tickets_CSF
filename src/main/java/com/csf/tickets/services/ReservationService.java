@@ -18,6 +18,8 @@ public interface ReservationService {
 
     List<Reservation> getOldReservations();
 
+    Reservation getReservationsById(Long id);
+
     Reservation cancelReservation(Long reservationId) throws ReservationException;
 
 }

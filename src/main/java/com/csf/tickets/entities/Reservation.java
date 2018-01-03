@@ -2,15 +2,25 @@ package com.csf.tickets.entities;
 
 import com.csf.tickets.dto.ReservationDto;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
-public class Reservation extends BaseEntity {
+public class Reservation {
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
     private String ticketId;
     private String userId;
     private Date reserveTime;
     private String status;
+
+    @ManyToOne
+    @JoinColumn(name="ticketOrderId")
+    private TicketOrder order;
 
     public Reservation() {
     }
@@ -56,5 +66,21 @@ public class Reservation extends BaseEntity {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public TicketOrder getOrder() {
+        return order;
+    }
+
+    public void setOrder(TicketOrder order) {
+        this.order = order;
     }
 }

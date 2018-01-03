@@ -9,7 +9,6 @@ import com.csf.tickets.exceptions.ReservationException;
 import com.csf.tickets.repositories.ReservationRepository;
 import com.csf.tickets.services.ReservationService;
 import com.csf.tickets.services.TicketService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,8 +62,8 @@ public class ReservationServiceImpl implements ReservationService {
         ticketDto.ifPresent(t -> ticketService.updateTicket(t, TicketStatus.RESERVED));
 
         Reservation reservationEntity = new Reservation(reservation);
-        reservation.setStatus(ReservationStatus.WAITING);
-        reservation.setReserveTime(new Date());
+        reservationEntity.setStatus(ReservationStatus.WAITING);
+        reservationEntity.setReserveTime(new Date());
         reservationEntity = reservationRepository.save(reservationEntity);
 
         return reservationEntity;
@@ -73,6 +72,11 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<Reservation> getReservationsByUserId(String userId) {
         return reservationRepository.findByUserId(userId);
+    }
+
+    @Override
+    public Reservation getReservationsById(Long id) {
+        return reservationRepository.findOne(id);
     }
 
     @Override
